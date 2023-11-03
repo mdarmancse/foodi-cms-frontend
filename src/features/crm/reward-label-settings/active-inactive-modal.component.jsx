@@ -1,0 +1,58 @@
+import { Button, Modal } from "react-bootstrap";
+
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { Api } from "@/constants";
+import { useDeleteRewardLabelsMutation } from "./reward-label-api";
+import { useLazyGetTableListQuery } from "@/features/ui/table/common-table-api-slice";
+
+export const ActiveInactiveModal = ({ show, onClose, selectedRow }) => {
+  const [deletePaymentType, { data, isSuccess, isLoading }] =
+    useDeleteRewardLabelsMutation();
+  const [getList] = useLazyGetTableListQuery();
+  const { pageNumber, itemsPerPage, isActive } = useSelector(
+    (state) => state.commonTable
+  );
+
+  const onDelete = async () => {
+    await deletePaymentType(selectedRow?.id);
+  };
+  useEffect(() => {
+    if (data && isSuccess) {
+      toast.success(data?.message);
+      getList({
+        url: Api.GetRewardLevelList,
+        params: {
+          pageNumber,
+          itemsPerPage,
+          isActive,
+        },
+      });
+      onClose();
+    }
+  }, [data]);
+  return (
+    <Modal show={show} size="sm" centered>
+      <Modal.Header>Are you sure you want to {isActive ? "Inactive" : "Active"}?</Modal.Header>
+      <Modal.Footer>
+        <Button
+          size="sm"
+          variant="warning"
+          onClick={onClose}
+          disabled={isLoading}
+        >
+          Close
+        </Button>
+        <Button
+          size="sm"
+          variant="success"
+          onClick={onDelete}
+          disabled={isLoading}
+        >
+          Accept
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};

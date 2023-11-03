@@ -1,0 +1,1 @@
+export {RewardPointForm} from './create-form.component'

@@ -1,0 +1,1 @@
+export {RiderTypeCreate} from './rider-type.create.component'

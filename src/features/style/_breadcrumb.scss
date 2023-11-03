@@ -1,0 +1,10 @@
+.breadcrumb {
+  * a {
+    text-decoration: none !important;
+  }
+
+  a[data-cy="0"] {
+    color: rgb(168, 167, 167) !important;
+    cursor: not-allowed;
+  }
+}

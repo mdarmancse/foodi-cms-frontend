@@ -1,0 +1,1 @@
+export {ReviewandRatings} from './review-and-ratings.component'

@@ -1,0 +1,1 @@
+export {KmWiseDeliveryChargeCreate} from './km-wise-deliverycharge.create.component'

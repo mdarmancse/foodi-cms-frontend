@@ -1,0 +1,11 @@
+.fs-xs {
+  font-size: 0.875rem !important;
+}
+
+// override z-index in formik select button
+
+.formik-select-field {
+  .btn-group > .btn-check:checked + .btn {
+    z-index: 0 !important;
+  }
+}

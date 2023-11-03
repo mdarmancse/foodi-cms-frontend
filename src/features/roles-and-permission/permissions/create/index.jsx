@@ -1,0 +1,1 @@
+export {PermissionCreate} from './permission-create.component'

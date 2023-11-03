@@ -1,0 +1,1 @@
+export { RiderAndZone } from './rider-and-zone.component';

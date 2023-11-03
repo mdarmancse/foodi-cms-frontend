@@ -1,0 +1,59 @@
+// navbar
+.navbar {
+  height: $navbarHeight;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  .nav-dropdown {
+    .dropdown-toggle {
+      color: white;
+    }
+  }
+}
+
+.layout {
+  //   loyout;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .main-content {
+    margin-top: $navbarHeight !important;
+    min-height: calc(100vh - $navbarHeight) !important;
+    height: auto !important;
+  }
+}
+
+.title {
+  background-color: $primary;
+  padding: 0.8rem 0.7rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  border-radius: 0.3rem !important;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.1) !important;
+  margin: 1.5rem 0px !important;
+  border: 1px solid $primary;
+
+  h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.link-button {
+  background-color: white;
+  text-decoration: none;
+  color: $primary;
+  // border: 1px solid #22c55e;
+  padding: 5px 20px;
+  border-radius: 25px;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    background-color: $primary;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+  }
+}

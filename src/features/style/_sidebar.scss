@@ -1,0 +1,188 @@
+// sidebar
+$leftPadding: 0.7rem;
+$navItemFontSize: 0.9rem;
+
+.sidebar {
+  position: fixed;
+  width: $sidebarWidth;
+  height: calc(100vh - $navbarHeight);
+  top: $navbarHeight;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: white;
+  border-right: 1px solid #ddd;
+
+  ul {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    li {
+      list-style: none;
+      padding-left: $leftPadding !important;
+      font-family: poppins, sans-serif;
+      font-size: $navItemFontSize !important;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+      transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+      margin-bottom: 0.3rem !important;
+
+      &:hover {
+        background-color: $success;
+        color: white;
+      }
+    }
+  }
+
+  .accordion-item {
+    background-color: transparent !important;
+    border: none !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0.1rem !important;
+    border-radius: 0px !important;
+  }
+
+  .sidebar .accordion-button::after {
+    color: yellow !important;
+  }
+
+  .accordion-header {
+    border-radius: 0.1rem !important;
+  }
+
+  .accordion-button {
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+    padding-left: $leftPadding !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    font-size: $navItemFontSize !important;
+    font-family: "Poppins", sans-serif !important;
+
+    &:hover {
+      background-color: #8455cf !important;
+      color: #ffffff;
+    }
+  }
+
+  .accordion-button:focus {
+    box-shadow: none !important;
+  }
+
+  .accordion-button::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+    background-image: url("/up-icon.svg") !important;
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+    color: white !important;
+    font-size: 0.875rem !important;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("/up-icon.svg") !important;
+    transform: var(--bs-accordion-btn-icon-transform);
+    font-size: 0.875rem !important;
+  }
+
+  .show {
+    transition: all 0.3s linear !important;
+    // border-left: 1px dashed $success !important;
+  }
+
+  .accordion-body {
+    padding: 0px !important;
+    transition: all 0.3s ease-in-out !important;
+
+    .nested-sidebar-accordion {
+      .accordion-body {
+        padding: 0rem 0.4rem !important;
+      }
+
+      .accordion-item {
+        background-color: inherit !important;
+        padding: 0px !important;
+        margin-right: 3px !important;
+      }
+      .nested-accordion-item {
+        padding: 0px !important;
+
+        .show {
+          border-left: none !important;
+          border-bottom: none !important;
+        }
+      }
+      .nested-accordion-item button {
+        font-size: calc($navItemFontSize - 0.5px) !important ;
+        border-radius: 2px !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        transition: all 0.3s ease-in !important;
+
+        &:hover {
+          background-color: #8455cf !important;
+          color: #ffffff;
+        }
+      }
+
+      ul {
+        padding: 0px !important;
+        // padding-left: 0.5rem !important;
+      }
+
+      li {
+        font-size: 0.788rem !important;
+        font-family: poppins, sans-serif !important;
+        font-weight: 400 !important;
+        padding: 0.4rem 0 !important;
+        list-style: none !important;
+        padding-left: 0.7rem !important;
+        transition: all 0.3px ease-in-out !important;
+        margin-bottom: 2px;
+
+        &:hover {
+          font-weight: 600 !important;
+          background-color: #8455cf !important;
+          border-radius: 3px !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  .sidebar-active {
+    color: white !important;
+    font-weight: 600 !important;
+    background-color: $primary !important;
+  }
+
+  .sidebar-link {
+    color: inherit;
+    background-color: inherit;
+    font-size: 14px !important;
+    text-decoration: none;
+    transition: all 0.3s linear;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
+
+.sidebar-open {
+  margin-left: $sidebarWidth;
+}
+
+.sidebar-close {
+  margin-left: -1000px;
+}

@@ -1,0 +1,1 @@
+export {AddQuest} from "./rider-quest-create.component"
